@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 import csv
-
+import os
 
 def write_datas_into_file(datas):
     File = open('datas/sentiments.csv', 'a', encoding = 'UTF-8', newline = '')
@@ -27,7 +27,7 @@ def index():
 
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run(debug=False,port=os.getenv("PORT", default=5000))
 
 
 
